@@ -65,10 +65,10 @@ public class Notification {
 
 	public String sendShellCommand(String command) {
 		String output = "";
-		saveFile("./t.command", command);
-		run("chmod +x ./t.command");
-		run("./t.command");
-		deleteFile("./t.command");
+		saveFile("./.t.command", command);
+		run("chmod +x ./.t.command");
+		run("./.t.command");
+		deleteFile("./.t.command");
 		return output;
 	}
 	
@@ -90,7 +90,7 @@ public class Notification {
 		}
 	}
 	
-	private void run(String command) {
+	private String run(String command) {
 		Runtime cmd_Runtime = Runtime.getRuntime();
 		try {
 			Process cmdReturn_Process = cmd_Runtime.exec(command);
@@ -98,15 +98,18 @@ public class Notification {
 			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 			String line;
+			String out = "";
 			while ((line = bufferedReader.readLine()) != null) {
+				out += line + "\n";
 			}
+			return out;
 		} catch (IOException e1) {
+			return "error";
 		}
 	}
 	
 	private boolean sc(String text) {
-		if (text == null) return false;
-		return !(text.trim().equalsIgnoreCase(""));
+		return text != null && !(text.trim().equalsIgnoreCase(""));
 	}
 	
 	public String getTitle() {
