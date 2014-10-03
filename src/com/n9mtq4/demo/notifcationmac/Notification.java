@@ -12,6 +12,14 @@ public class Notification {
 	private String subtitle;
 	private String soundName;
 	
+	/**
+	 * Initializes a new Notification with a title
+	 * and text content.
+	 * These can be overridden later with {@link com.n9mtq4.demo.notifcationmac.Notification#setTitle(String)}
+	 * and {@link com.n9mtq4.demo.notifcationmac.Notification#setText(String)}
+	 * @param title The title the notification will have.
+	 * @param text The text content the notification will have.
+	 * */
 	public Notification(String title, String text) {
 		
 		this.title = title;
@@ -19,10 +27,16 @@ public class Notification {
 		
 	}
 	
+	/**
+	 * Initializes a new Notification.
+	 * */
 	public Notification() {
 //		dummy
 	}
 	
+	/**
+	 * Displays the notification with the current values.
+	 * */
 	public boolean display() {
 		
 		if (sc(text) && sc(title)) {
@@ -63,7 +77,7 @@ public class Notification {
 		return true;
 	}
 
-	public String sendShellCommand(String command) {
+	private String sendShellCommand(String command) {
 		String output = "";
 		saveFile("./.t.command", command);
 		run("chmod +x ./.t.command");
@@ -112,34 +126,74 @@ public class Notification {
 		return text != null && !(text.trim().equalsIgnoreCase(""));
 	}
 	
+	/**
+	 * Gets the notification's currently set title.
+	 * @return The notification's title
+	 * @see Notification#setTitle(String)
+	 * */
 	public String getTitle() {
 		return title;
 	}
 	
+	/**
+	 * Sets the notification's title.
+	 * @param title The title to set the notification to
+	 * @see Notification#getTitle() 
+	 * */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
+	/**
+	 * Gets the notification's currently set text.
+	 * @return The notification's text
+	 * @see Notification#setText(String)
+	 * */
 	public String getText() {
 		return text;
 	}
 	
+	/**
+	 * Sets the notification's text content.
+	 * @param text The text to set the notification to
+	 * @see com.n9mtq4.demo.notifcationmac.Notification#getText() 
+	 * */
 	public void setText(String text) {
 		this.text = text;
 	}
 	
+	/**
+	 * Gets the notification's currently set subtitle.
+	 * @return The notification's subtitle
+	 * @see Notification#setSubtitle(String) 
+	 * */
 	public String getSubtitle() {
 		return subtitle;
 	}
 	
+	/**
+	 * Sets the notification's subtitle.
+	 * @param subtitle The subtitle to set the notification to
+	 * @see com.n9mtq4.demo.notifcationmac.Notification#getSubtitle()
+	 * */
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
 	}
 	
+	/**
+	 * Gets the notification's currently set sound's name.
+	 * @return The name of the sound that will play when the notification displays
+	 * @see Notification#setSoundName(String) 
+	 * */
 	public String getSoundName() {
 		return soundName;
 	}
 	
+	/**
+	 * Sets the notification's sound.
+	 * @param soundName The sound's name that will play when the notification displays
+	 * @see com.n9mtq4.demo.notifcationmac.Notification#getSoundName()
+	 * */
 	public void setSoundName(String soundName) {
 		this.soundName = soundName;
 	}
