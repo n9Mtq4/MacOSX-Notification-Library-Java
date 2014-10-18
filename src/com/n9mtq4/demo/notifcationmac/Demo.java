@@ -23,26 +23,39 @@ public class Demo {
 	
 	public static void main(String[] args) {
 		
+//		Makes a new Notification assigned to n with a title of title and text as text
 		Notification n = new Notification("Title", "Text");
+//		displays n
 		n.display();
 		
+//		sleeps for 5.1 seconds
 		sleep();
 		
-		n = new Notification("Title", "Text");
+//		gives n a subtitle
 		n.setSubtitle("With subtitles");
+//		displays n
 		n.display();
 		
+//		sleeps for 5.1 seconds
 		sleep();
 		
+//		reassigns n with a title of Title and text as With sound
 		n = new Notification("Title", "With sound");
+//		sets the name of the sound that will be played
 		n.setSoundName("default");
+//		displays n
 		n.display();
 		
+//		sleeps for 5.1 seconds
 		sleep();
 		
-		n = new Notification("Title", "and sound");
+		//instead of reassigning n we can edit the text directly
+		n.setText("and sound");
+//		edits the subtitle
 		n.setSubtitle("with subtitle");
+//		sets the sound name
 		n.setSoundName("default");
+//		displays n
 		n.display();
 		
 	}
