@@ -55,6 +55,8 @@ public class Notification {
 	 * */
 	public boolean display() {
 		
+		if (!(System.getProperty("os.name").toLowerCase().contains("mac"))) return false;
+		
 		if (sc(text) && sc(title)) {
 			
 			if (sc(subtitle) && sc(soundName)) {
