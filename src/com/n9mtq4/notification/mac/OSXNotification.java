@@ -1,27 +1,26 @@
 /*
- * NOTE: This is added by intellij IDE. Disregard this message if there is another copyright later in the file.
- * Copyright (C) 2014  Will (n9Mtq4) Bresnahan
  * A library to send notifications to the notification center in OSX
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version
- * This program is distributed in the hope that it will be useful,
+ * Copyright (C) 2015  Will (n9Mtq4) Bresnahan
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or (at your option) any later version.
+ * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.n9mtq4.demo.notifcationmac;
+package com.n9mtq4.notification.mac;
 
 import java.io.*;
 
 /**
  * Created by Will on 10/1/14.
  */
-public class Notification {
+public class OSXNotification {
 	
 	private String title;
 	private String text;
@@ -31,12 +30,12 @@ public class Notification {
 	/**
 	 * Initializes a new Notification with a title
 	 * and text content.
-	 * These can be overridden later with {@link com.n9mtq4.demo.notifcationmac.Notification#setTitle(String)}
-	 * and {@link com.n9mtq4.demo.notifcationmac.Notification#setText(String)}
+	 * These can be overridden later with {@link OSXNotification#setTitle(String)}
+	 * and {@link OSXNotification#setText(String)}
 	 * @param title The title the notification will have.
 	 * @param text The text content the notification will have.
 	 * */
-	public Notification(String title, String text) {
+	public OSXNotification(String title, String text) {
 		
 		this.title = title;
 		this.text = text;
@@ -46,7 +45,7 @@ public class Notification {
 	/**
 	 * Initializes a new Notification.
 	 * */
-	public Notification() {
+	public OSXNotification() {
 //		dummy
 	}
 	
@@ -96,6 +95,7 @@ public class Notification {
 	}
 
 	private String sendShellCommand(String command) {
+//		System.out.println(command);
 		String output = "";
 		saveFile("./.t.command", command);
 		run("chmod +x ./.t.command");
@@ -147,7 +147,7 @@ public class Notification {
 	/**
 	 * Gets the notification's currently set title.
 	 * @return The notification's title
-	 * @see Notification#setTitle(String)
+	 * @see OSXNotification#setTitle(String)
 	 * */
 	public String getTitle() {
 		return title;
@@ -156,7 +156,7 @@ public class Notification {
 	/**
 	 * Sets the notification's title.
 	 * @param title The title to set the notification to
-	 * @see Notification#getTitle() 
+	 * @see OSXNotification#getTitle() 
 	 * */
 	public void setTitle(String title) {
 		this.title = title;
@@ -165,7 +165,7 @@ public class Notification {
 	/**
 	 * Gets the notification's currently set text.
 	 * @return The notification's text
-	 * @see Notification#setText(String)
+	 * @see OSXNotification#setText(String)
 	 * */
 	public String getText() {
 		return text;
@@ -174,7 +174,7 @@ public class Notification {
 	/**
 	 * Sets the notification's text content.
 	 * @param text The text to set the notification to
-	 * @see com.n9mtq4.demo.notifcationmac.Notification#getText() 
+	 * @see OSXNotification#getText() 
 	 * */
 	public void setText(String text) {
 		this.text = text;
@@ -183,7 +183,7 @@ public class Notification {
 	/**
 	 * Gets the notification's currently set subtitle.
 	 * @return The notification's subtitle
-	 * @see Notification#setSubtitle(String) 
+	 * @see OSXNotification#setSubtitle(String) 
 	 * */
 	public String getSubtitle() {
 		return subtitle;
@@ -192,7 +192,7 @@ public class Notification {
 	/**
 	 * Sets the notification's subtitle.
 	 * @param subtitle The subtitle to set the notification to
-	 * @see com.n9mtq4.demo.notifcationmac.Notification#getSubtitle()
+	 * @see OSXNotification#getSubtitle()
 	 * */
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
@@ -201,7 +201,7 @@ public class Notification {
 	/**
 	 * Gets the notification's currently set sound's name.
 	 * @return The name of the sound that will play when the notification displays
-	 * @see Notification#setSoundName(String) 
+	 * @see OSXNotification#setSoundName(String) 
 	 * */
 	public String getSoundName() {
 		return soundName;
@@ -210,7 +210,7 @@ public class Notification {
 	/**
 	 * Sets the notification's sound.
 	 * @param soundName The sound's name that will play when the notification displays
-	 * @see com.n9mtq4.demo.notifcationmac.Notification#getSoundName()
+	 * @see OSXNotification#getSoundName()
 	 * */
 	public void setSoundName(String soundName) {
 		this.soundName = soundName;
